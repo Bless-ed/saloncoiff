@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 import MaxWidthWrapper from "@/components/globals/MaxWidthWrapper";
 import { miniTestimonials, strongPoints } from "@/constants";
 import { Check, Star } from "lucide-react";
 import Image from "next/image";
 
->>>>>>> af7b62bd15dea9b2b387f69823894ebce7241db9
 export default function Home() {
   return (
     <div className='bg-slate-50'>
