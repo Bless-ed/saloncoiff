@@ -30,7 +30,7 @@ const Navbar = () => {
                         </Link>
                         {isAdmin ? (
                             <Link
-                                href={'#'}
+                                href={''}
                                 className={buttonVariants({
                                     size: 'sm',
                                     variant: 'ghost'
@@ -40,7 +40,7 @@ const Navbar = () => {
                             </Link>
                         ): null}
                         <Link
-                            href='#'
+                            href='' 
                             className={buttonVariants({
                                 size: 'sm',
                                 className: 'hidden sm:flex items-center gap-1'

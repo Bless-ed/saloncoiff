@@ -1,0 +1,35 @@
+
+Voici comment nous pouvons structurer cela :
+
+1. Sur la page d'accueil ou la page d'inscription, nous aurons deux options distinctes :
+   - "Je suis un client"
+   - "Je suis un coiffeur"
+
+2. En fonction de ce choix, l'utilisateur sera dirigé vers un formulaire d'inscription spécifique qui créera :
+   - D'abord le `User` avec le rôle approprié
+   - Puis immédiatement le profil correspondant (`Client` ou `Hairdresser`)
+
+Je peux vous aider à créer :
+1. La page de choix du rôle
+2. Les formulaires d'inscription spécifiques pour chaque rôle
+3. La logique pour créer les enregistrements dans la base de données
+
+Par quelle partie souhaitez-vous commencer ? La page de choix du rôle ou les formulaires d'inscription ?
+
+
+## npx prisma migrate dev --name update_user_roles_and_profiles
+Les modifications principales que j'ai apportées sont :
+Dans le modèle User :
+Ajout d'une valeur UNDEFINED à l'enum Role
+Définition de role avec une valeur par défaut UNDEFINED (@default(UNDEFINED))
+Dans le modèle Hairdresser :
+salonName et location sont maintenant requis (suppression des ?)
+Ajout de onDelete: Cascade pour la relation avec User
+Dans le modèle Client :
+phone et address sont maintenant requis (suppression des ?)
+Ajout de onDelete: Cascade pour la relation avec User
+Ces changements permettent :
+Un utilisateur commence avec un rôle UNDEFINED
+Lors du choix initial (client ou coiffeur), le rôle sera mis à jour
+Les champs obligatoires sont clairement définis pour chaque type de profil
+La suppression en cascade est activée (si un utilisateur est supprimé, son profil client ou coiffeur sera également supprimé)
