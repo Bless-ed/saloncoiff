@@ -91,6 +91,7 @@ model Hairdresser {
 model Client {
   id        String   @id @default(uuid())
   userId    String   @unique
+  name      String
   phone     String
   address   String
   appointments Appointment[]
