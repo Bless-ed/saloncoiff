@@ -32,6 +32,9 @@ export const hairdresserSchema = z.object({
     message: "Le mot de passe doit contenir au moins 8 caractères.",
   }),
   confirmPassword: z.string(),
+  phone: z.string().min(8, {
+    message: "Le numéro de téléphone doit contenir au moins 10 chiffres.",
+  }),
   salonName: z.string().min(1, {
     message: "Le nom du salon est requis.",
   }),

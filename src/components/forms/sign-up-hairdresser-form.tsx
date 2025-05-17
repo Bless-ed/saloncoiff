@@ -15,14 +15,16 @@ import { ZodType } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { FIELD_CLIENT_NAMES, FIELD_TYPES } from "@/constants"
 import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
 
 interface FormData {
-  name: string; 
-  email: string;
-  password: string;
-  confirmPassword: string;
-  phone: string;
-  address: string;
+    salonName: string
+    email: string
+    phone: string
+    password: string
+    confirmPassword: string
+    bio?: string
+    location: string
 }
 
 interface Props<T> {
@@ -31,7 +33,7 @@ interface Props<T> {
     onSubmit: (data: T) => Promise<{success: boolean, error?: string}>;
 }
 
-const SignUpClientForm = ({
+const SignUpHairdresserForm = ({
     schema,
     defaultValues,
     onSubmit
@@ -94,14 +96,14 @@ const Logo: React.FC = () => (
 
 const Header: React.FC = () => (
   <div className="mb-6 text-center">
-    <h1 className="text-2xl font-semibold">Connectez-vous à votre compte</h1>
+    <h1 className="text-2xl font-semibold">Inscriver-vous pour avoir un compte</h1>
     <p className="mt-2 text-zinc-500 dark:text-zinc-400">
-      Vous n'avez pas de compte ?
+      Vous avez deja un compte ?
       <Link href="#" className={cn(buttonVariants({
         variant: 'link',
         className: 'text-purple-600'
       }))}>
-        Créez-en un.
+        Connectez-vous.
       </Link>
     </p>
   </div>
@@ -111,7 +113,7 @@ const SocialButtons: React.FC = () => (
   <div className="mb-6 space-y-3">
     <div className="grid grid-cols-2 gap-3">
       <SocialButton  icon={<FaGoogle size={20} />} >Google</SocialButton>
-      <SocialButton >Se connecter avec SSO</SocialButton>
+      <SocialButton >S'inscrire avec SSO</SocialButton>
     </div>
   </div>
 )
@@ -150,7 +152,7 @@ const RegistrationForm = ({
 }: Props<FormData>) => {
     const router = useRouter()
 
-    const form = useForm<FormData>({ 
+    const form = useForm<FormData>({
         resolver: zodResolver(schema),
         defaultValues
     })
@@ -173,18 +175,18 @@ const RegistrationForm = ({
           <div>
             <FormField
               control={form.control}
-              name="name"
+              name="salonName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="capitalize">
-                    Nom complet ou pseudo
+                    Nom du Salon
                   </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       required
                       type="text"
-                      placeholder="ex: John"
+                      placeholder="ex: Salon de lune"
                     />
                   </FormControl>
                   <FormMessage/>
@@ -206,7 +208,7 @@ const RegistrationForm = ({
                       {...field}
                       required
                       type="email"
-                      placeholder="ex: John@gmail.com"
+                      placeholder="ex: salon@gmail.com"
                     />
                   </FormControl>
                   <FormMessage/>
@@ -237,11 +239,11 @@ const RegistrationForm = ({
           <div className="">
             <FormField
               control={form.control}
-              name="address"
+              name="location"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="capitalize">
-                    Lieu de résidence
+                    Address du salon
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -257,6 +259,27 @@ const RegistrationForm = ({
               )}
             />
           </div>
+
+          <div className="">
+              <FormField
+                control={form.control}
+                name="bio"
+                render={({ field }) => (
+                    <FormItem>
+                        <FormLabel className="capitalize">
+                            Biographie
+                        </FormLabel>
+                        <FormControl>
+                            <Textarea
+                                {...field}
+                                placeholder="ecris ta bio ici"
+                            />
+                        </FormControl>
+                    </FormItem>
+                )}
+              />
+          </div>
+
           <div className="grid grid-cols-2 gap-3 !mb-5">
             <FormField
               control={form.control}
@@ -350,4 +373,4 @@ const BackgroundDecoration: React.FC = () => {
   )
 }
 
-export default SignUpClientForm
+export default SignUpHairdresserForm

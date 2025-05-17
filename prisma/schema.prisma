@@ -80,6 +80,7 @@ model Hairdresser {
   id        String   @id @default(uuid())
   userId    String   @unique
   salonName String
+  phone     String
   bio       String?
   location  String
   services  Service[]

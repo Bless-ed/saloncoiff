@@ -5,7 +5,7 @@ import { clientRegistration } from '@/lib/actions/auth'
 import { clientSchema } from '@/lib/validations/auth'
 import React from 'react'
 
-const SignUpPage = () => {
+const ClientSignUpPage = () => {
   return (
     <div>
       <SignUpClientForm 
@@ -24,4 +24,4 @@ const SignUpPage = () => {
   )
 }
 
-export default SignUpPage
+export default ClientSignUpPage
