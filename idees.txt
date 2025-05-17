@@ -33,14 +33,3 @@ Un utilisateur commence avec un rôle UNDEFINED
 Lors du choix initial (client ou coiffeur), le rôle sera mis à jour
 Les champs obligatoires sont clairement définis pour chaque type de profil
 La suppression en cascade est activée (si un utilisateur est supprimé, son profil client ou coiffeur sera également supprimé)
-
-
-
-
-DATABASE_URL=postgresql://neondb_owner:npg_9LXZNutMbR5k@ep-soft-shadow-a2o9pxb7-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require
-# uncomment next line if you use Prisma <5.10
-# DATABASE_URL_UNPOOLED="postgresql://neondb_owner:npg_9LXZNutMbR5k@ep-soft-shadow-a2o9pxb7.eu-central-1.aws.neon.tech/neondb?sslmode=require"
-
-//BETTER-AUTH
-BETTER_AUTH_SECRET=i3WVX988DsxWQACj2OmOzO0U1Ourv07C
-BETTER_AUTH_URL=http://localhost:3000
