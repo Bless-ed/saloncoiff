@@ -13,7 +13,6 @@ import { DefaultValues, FieldValues, Path, SubmitHandler, useForm, UseFormReturn
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ZodType } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
-import { FIELD_CLIENT_NAMES, FIELD_TYPES } from "@/constants"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 
