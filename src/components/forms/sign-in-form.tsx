@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => (
 
 const Logo: React.FC = () => (
   <div className="mb-6 flex items-center justify-center">
-    <img
+    <Image
       src="/logo_illustration/head1.png"
       alt="Logoipsum"
       className="h-16 w-16 rounded-full"
